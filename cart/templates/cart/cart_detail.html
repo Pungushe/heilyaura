@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titlle %} Корзина {% endblock %}
+
+{% block content %}
+     <section class="cart d-flex">
+          <div class="cart-title">
+               <h1>Корзина</h1>
+          </div>
+          
+          <div class="cart-cards">
+               {% for item in cart  %}
+               {% with product=item.product %}
+                    <div class="cart-card">
+                         <div class="cart-card-img">
+                              <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no-image.jpg' %}{% endif %}" class="card-img" alt="{{ product.name }}">
+                         </div>
+                     
+                         <div class="cart-card-info">
+                                   <div class="cart-card-name">
+                                        <p>{{ product.name }}</p>
+                                   </div>
+
+                                   <div class="cart-card-q">
+                                        <p>Количество: {{ item.quantity }}</p>
+                                   </div>
+                              </div>
+                              <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                                   {% csrf_token %}
+                                   <input type="submit" value="Удалить" class="remove-btn" value="Remove">
+                              </form>
+                              
+                              <div class="cart-card-price">
+                                   {% if product.discount %}
+                                        <div class="cart-discount d-flex gap-2">
+                                             <p class="line">BYN {{ product.price }}</p>
+                                             <p class="mt-4">{{ product.sell_price }}</p>
+                                        </div>
+                                   {% else %}
+                                        <p class="price">BYN {{ product.price }}</p>     
+                                   {% endif %}
+                              </div>
+                         </div>    
+                    {% endwith %}  
+               {% endfor %}                    
+          </div>
+          <div class="total">
+               <h5>Итого: BYN {{ cart.get_total_price }}</h5>
+          </div>
+          
+          <div class="cart-buttons d-flex gap-3">
+               <a href="/shop" class="cart-btn ">Продолжить покупки</a>
+               
+               {% with cart_quantity=cart|length %}
+                    {% if cart_quantity > 0 %}
+                         <a href="#" class="cart-btn">Оформить заказ</a>
+                    {% endif %}
+               {% endwith %}
+          </div>
+     </section>     
+{% endblock %}
