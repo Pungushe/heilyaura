@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # apps
     'frontpage.apps.FrontpageConfig',
     'cart.apps.CartConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CART_SESSION_ID='cart'
+
+AUTH_USER_MODEL = 'users.User'

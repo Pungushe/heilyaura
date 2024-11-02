@@ -8,6 +8,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Корзина
     path('cart/', include('cart.urls', namespace='cart')),
+    # Страница пользователя
+    path('users/', include('users.urls', namespace='users')),
     # Главная страница
     path('', include('frontpage.urls', namespace='frontpage')),
 ]
