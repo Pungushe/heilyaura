@@ -15,9 +15,11 @@ def order_create(request):
             order = form.save()
             
             for item in cart:
+                discounted_price = item['product'].sell_price()
+                
                 OrderItem.objects.create(order=order,
                                         product=item['product'],
-                                        price=item['price'],
+                                        price=discounted_price,
                                         quantity=item['quantity'])
             cart.clear()
             request.session['order_id'] = order.id
