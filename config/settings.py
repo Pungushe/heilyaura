@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'frontpage.apps.FrontpageConfig',
     'cart.apps.CartConfig',
     'users.apps.UsersConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,7 @@ STATICFILES_DIRS =[
 # Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

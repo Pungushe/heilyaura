@@ -35,20 +35,26 @@
                </div>
                
                <div class="header-profile pt-2">
-                    <a href="#" class="m-2">Логин</a>               
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'users:profile' %}" class="m-2">Профиль</a>               
+                    <a href="{% url 'users:logout' %}" class="m-2">Выход</a>               
+                    {% else %}
+                         <a href="{% url 'users:login' %}" class="m-2">Вход</a>
+                         <a href="{% url 'users:registration' %}" class="m-2">Регистрация</a>
+                    {% endif %}
                     
                     <a href="{% url 'cart:cart_detail' %}">
                          <img src="{% static 'img/shopping-cart.png' %}" class="shopping-cart">
+                         <p class="cart-quantity">
+                              {% with cart_quantity=cart|length %}
+                                   {% if cart_quantity > 0 %}
+                                        {{ cart_quantity }}
+                                   {% else %}
+                                        0
+                                   {% endif %}
+                              {% endwith %}
+                         </p>
                     </a>               
-                    <p class="cart-quantity">
-                         {% with cart_quantity=cart|length %}
-                              {% if cart_quantity > 0 %}
-                                   {{ cart_quantity }}
-                              {% else %}
-                                   0
-                              {% endif %}
-                         {% endwith %}
-                    </p>
                </div>
           </div>
      </header>

@@ -337,19 +337,21 @@ input:focus {
     width: 30px;
     height: 30px;
     margin: 20px 10px 10px 10px;
+    position: relative;
+    min-width: 30px;
 }
 
 .cart-quantity {
     position: absolute;
-    border-radius: 20px;
     width: 20px;
     height: 20px;
     font-size: 13px;
     border: 1px solid #000;
+    border-radius: 20px;
     text-align: center;
-    margin: -55px 95px;
+    top: 11px;
+    right: 277px;
 }
-
 .m-2 {
     position: relative; 
     top: 5px; 
@@ -559,12 +561,12 @@ input:focus {
     margin-top: 200px;
 }
 
-.form-stylereg {
-    width: 250px;
+.form-style-reg {
+    width: 200px;
     margin-left: 20px;
 }
 
-.form-styleprofile {
+.form-style-profile {
     width: 250px;
 }
 
@@ -601,14 +603,19 @@ input:focus {
 .profile-btn:hover {
     border: 1px solid #000000;
 }
-
 .checkout {
+    position: fixed;
+    top: 7rem;
+    right: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(90, 7, 7, 0.1);
     margin-top: 70px;
-    width: 600px;
+    width: 500px;
 }
 
 .order-info {
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 .order-form input {
@@ -700,7 +707,7 @@ input:focus {
     opacity: 0.2;
 }
 
-.orderss {
+.orders-list {
     margin-left: 70px;
     width: 520px;
     max-height: 52vh; 
@@ -735,7 +742,7 @@ input:focus {
     margin-left: 60px;
 }
 
-.dadad {
+.order-items-all {
     font-family: "Carrois Gothic", sans-serif;
     font-size: 18px;
     font-weight: 700;

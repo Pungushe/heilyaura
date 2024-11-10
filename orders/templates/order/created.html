@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %} 
+
+{% block content %}
+<div class="container">
+  <div><div style="margin-top: 150px;"></div></div>
+  
+  <div class="content">
+    <h2>Оплата прошла успешно! Спасибо за покупку</h2>
+    <p> Вы можете продолжить покупку</p>
+    <a href="{% url 'frontpage:product_list' %}" class="btn btn-success">На главную</a>
+  </div>
+</div>
+<div><div style="margin-top: 350px;"></div></div>
+
+{% endblock %}

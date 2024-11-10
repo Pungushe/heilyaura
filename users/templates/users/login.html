@@ -6,10 +6,11 @@
 {% block content %}
      <section class="login d-flex">
           <div class="login-title">
-               <h2>Вход</h2>
+               <h2 class="text-center">Вход</h2>
 
-               <form action="{% url 'login' %}" method="post">
+               <form action="{% url 'users:login' %}" method="post">
                     {% csrf_token %}
+                    
                     {% if request.GET.next %}
                          <input type="hidden" name="next" value="{{ request.GET.next }}">
                     {% endif %}
@@ -24,17 +25,26 @@
                     </div>
 
                     <div class="mb-3">
-                         <label for="id_password " class="form-label form-style">Пароль</label>
+                         <label for="id_password" class="form-label form-style">Пароль</label>
                          
-                         <input type="text" class="form-control form-style" 
+                         <input type="password" class="form-control form-style" 
                               value="{% if form.username.value %}{{ form.password.value }}{% endif %}" 
                               id="id_password" 
                               name="password" placeholder="Введите пароль" required  
                          >
                     </div>
-
-                    <button type="submit" class="login-btn btn-primary form-style">Логин</button>
+                    <button type="submit" class="login-btn form-style">Войти</button>
                </form>
+
+               <div class="reset-pass">
+                    <hr>
+                    <div class="m-3">
+                         <a href="#">Сбросить пароль</a>
+                         <a href="{% url 'users:registration' %}">Создать аккаунт</a>
+
+                    </div>
+               </div>
           </div>
-     </section>          
-{% endblock %}``
+     </section>
+{% endblock %}
+

@@ -2,8 +2,67 @@
 
 {% load static %}
 
-{% block titlle %} Регистрация {% endblock %}
-
+{% block titlle %} Логин {% endblock %}
 {% block content %}
-          
+     <section class="login-reg d-flex">
+          <div class="login-title">
+               <h2 class="text-center">Регистрация</h2>
+
+               <form action="{% url 'users:registration' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="row">
+                         <div class="col-md-6 mb-3">
+                              <label for="id_first_name " class="form-label form-style-reg">Имя</label>
+                              <input type="text" class="form-control form-style-reg" 
+                              value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}" 
+                              id="id_first_name" name="first_name" placeholder="Введите имя" required
+                              >
+                         </div>
+                         
+                         <div class="col-md-6 mb-3">
+                              <label for="id_last_name" class="form-label form-style-reg">Фамилия</label>
+                              <input type="text" class="form-control form-style-reg" 
+                              value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}" 
+                              id="id_last_name" name="last_name" placeholder="Введите фамилию" required
+                              >
+                         </div>
+
+                         <div class="col-md-6 mb-3">
+                              <label for="id_username " class="form-label form-style-reg">Имя пользователя</label>
+                              <input type="text" class="form-control form-style-reg" 
+                              value="{% if form.username.value %}{{ form.username.value }}{% endif %}" 
+                              id="id_username" name="username" placeholder="Введите логин" required
+                              >
+                         </div>
+
+                         <div class="col-md-6 mb-3">
+                              <label for="id_email" class="form-label form-style-reg">Email</label>
+                              <input type="email" class="form-control form-style-reg" 
+                              value="{% if form.email.value %}{{ form.email.value }}{% endif %}" 
+                              id="id_email" name="email" placeholder="Введите email" required
+                              >
+                         </div>
+
+                         <div class="col-md-6 mb-3">
+                              <label for="id_password1" class="form-label form-style-reg">Пароль</label>
+                              <input type="password" class="form-control form-style-reg" 
+                              value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
+                              id="id_password1" name="password1" placeholder="Введите пароль" required
+                              >
+                         </div>
+
+                         <div class="col-md-6 mb-3">
+                              <label for="id_password2" class="form-label form-style-reg">Подтвердите пароль</label>
+                              <input type="password" class="form-control form-style-reg"
+                              value="{% if form.password1.value %}{{ form.password2.value }}{% endif %}"
+                              id="id_password2" name="password2" placeholder="Повторите пароль" required
+                              >
+                         </div>
+                    </div>
+                    <button type="submit" class="login-btn form-style-reg">Зарегистрироватся</button>
+               </form>
+          </div>
+     </section>
 {% endblock %}
+
