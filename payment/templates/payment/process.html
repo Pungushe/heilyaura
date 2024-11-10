@@ -8,30 +8,35 @@
      <div class="window">
         <h2 class="pay-title">Оплата</h2>
         
+        
         <div class="pay-card d-flex">
             <div class="cart-card-proc">
 
-                {% for item in order.items.all %}
-                    {% with product=item.product %}
+                
+                <div class="cart-cards">
+                    
+                    {% for item in order.items.all %}
+               {% with product=item.product %}
                     <div class="cart-card">
                         <div class="cart-card-img">
                             <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no-image.jpg' %}{% endif %}" class="card-img" alt="{{ product.name }}">
                         </div>
-                    </div>
-                    
-                    <div class="cart-card-info">
-                        <div class="cart-card-name">
-                            <p>{{ product.name }}</p>
+                     
+                         <div class="cart-card-info">
+                            <div class="cart-card-name">
+                                <p>{{ product.name }}</p>
+                            </div>
+
                             <div class="cart-card-q">
                                 <p>Количество: {{ item.quantity }}</p>
                             </div>
                         </div>
+                        
                         <form action="{% url 'cart:cart_remove' product.id %}" method="post">
                             {% csrf_token %}
-
-                            <input type="submit" value="Удалить" class="remove-btn">
+                            <input type="submit" value="Удалить" class="remove-btn" value="Remove">
                         </form>
-
+                        
                         <div class="cart-card-price">
                             {% if product.discount %}
                                 <div class="cart-discount d-flex gap-2">

@@ -1,12 +1,19 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 
 {% load static %}
 
-{% block titlle %} Завершение оплаты {% endblock %}
+{% block title %} {{ title }} {% endblock %} 
 
 {% block content %}
-    <div class="text-center mt-5">
-        <h1>Оплата заверщена успшено!</h1>
-    </div>
-{% endblock %}
+<div class="container">
+  <div><div style="margin-top: 150px;"></div></div>
+  
+  <div class="content">
+    <h2>Оплата прошла успешно! Спасибо за покупку</h2>
+    <p> Вы можете продолжить покупки</p>
+    <a href="{% url 'frontpage:product_list' %}" class="btn btn-success">На главную</a>
+  </div>
+</div>
+<div><div style="margin-top: 350px;"></div></div>
 
+{% endblock %}

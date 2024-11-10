@@ -12,6 +12,8 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
     # Заказы
     path('orders/', include('orders.urls', namespace='orders')),
+    # Оплата
+    path('payment/', include('payment.urls', namespace='payment')),
     # Главная страница
     path('', include('frontpage.urls', namespace='frontpage')),
 ]

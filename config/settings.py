@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'users.apps.UsersConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,11 @@ STATICFILES_DIRS =[
 # Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Stripe
+STRIPE_API_KEY = os.getenv('STRIPE_API_KEY')
+STRIPE_API_VERSION = os.getenv('STRIPE_API_VERSION')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 
 # Default primary key field type
