@@ -17,4 +17,5 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields={'slug':('name',)} 
     list_filter=('name', 'price')
     list_display_links=('name',)
+    inlines=[ProductImageInline]
     

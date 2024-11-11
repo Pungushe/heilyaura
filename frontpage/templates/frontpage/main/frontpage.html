@@ -7,7 +7,7 @@
 {% block content %}
      <section class="home d-flex flex-column">
           <div class="home-title d-flex flex-column align-items-center">
-               <a href="#" class="home-btn mt-4">Все товары</a>
+               <a href="{% url 'frontpage:product_list' %}" class="home-btn mt-4">Все товары</a>
           </div>
 
           <div class="home-recommendation">
@@ -24,8 +24,8 @@
                     {% if product.discount %}
                     
                          <div class="card-discount d-flex gap-2">
-                                   <p class="line">{{ product.price }}</p>
-                                   <p>{{ product.sell_price }}</p>
+                                   <p class="line pt-4">{{ product.price }}</p>
+                                   <p class="price pt-4">{{ product.sell_price }}</p>
                          </div>
                     {% else %}
                          <p class="price">{{ product.price }}</p>     

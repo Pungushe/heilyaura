@@ -140,6 +140,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STRIPE_API_KEY = os.getenv('STRIPE_API_KEY')
 STRIPE_API_VERSION = os.getenv('STRIPE_API_VERSION')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 
 # Default primary key field type

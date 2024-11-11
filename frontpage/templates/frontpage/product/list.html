@@ -40,9 +40,9 @@
                                         <h5 class="title-card">{{ product.name }}</h5>
 
                                          {% if product.discount %}
-                                             <div class="cart-discount d-flex gap-2">
-                                                  <p class="line">BYN {{ product.price }}</p>
-                                                  <p>{{ product.sell_price }}</p>
+                                             <div class="card-discount d-flex gap-2">
+                                                  <p class="line pt-4">BYN {{ product.price }}</p>
+                                                  <p class="price pt-4"> {{ product.sell_price }}</p>
                                              </div>
                                         {% else %}
                                              <p class="price">BYN {{ product.price }}</p>     
@@ -69,5 +69,6 @@
                 </li>
             </ul>
           </div>
+          <div class="main-vl"></div>
      </div>
 {% endblock %}

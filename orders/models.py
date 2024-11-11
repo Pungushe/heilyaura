@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from frontpage.models import Product
 from users.models import User
@@ -14,6 +15,7 @@ class Order(models.Model):
      created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
      updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
      paid=models.BooleanField(default=False, verbose_name="Оплачен")
+     stripe_id=models.CharField(max_length=250, blank=True, verbose_name="Stripe")
      
 
      def __str__(self):
@@ -21,6 +23,13 @@ class Order(models.Model):
      
      def get_total_cost(self):
           return sum(item.get_cost() for item in self.items.all())
+     
+     def get_stripe_url(self):
+          if not self.stripe_id:
+              return ''
+          path = '/test/' if '_test_' in settings.STRIPE_SECRET_KEY else '/'
+          
+          return f'https://dashboard.stripe.com{path}payments/{self.stripe_id}'
      class Meta:
           db_table="order"
           ordering = ['-created_at']
