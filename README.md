@@ -1,12 +1,12 @@
-# Репозиторий django_shop (Магазин товаров)
+# Репозиторий heilyaura (Магазин товаров)
 
 Этот репозиторий содержит код для создания интернет-магазина с использованием Django и Tailwind CSS.
 
 Установка (для пользователей операционных систем семейства MacOs/Linux/Windows):
 
-Открыть терминал или консоль и перейти в нужную Вам директорию. Прописать команду `git clone git@github.com:Pungushe/django_shop.git`
+Открыть терминал или консоль и перейти в нужную Вам директорию. Прописать команду `git clone git@github.com:Pungushe/heilyaura.git`
 
-Если Вы используете https, то: `https://github.com/Pungushe/django_shop.git`
+Если Вы используете https, то: `https://github.com/Pungushe/heilyaura.git`
 
 ## Установка webhook для Stripe
 
@@ -30,7 +30,5 @@ stripe listen --forward-to localhost:4242/webhook
 ## Установка контейнера Docker
 
 '''commandline
-     
-     
      docker-compose up --build
 '''
