@@ -17,18 +17,11 @@
 ## Локальное прослушивание  вебхуков Stripe
 
 '''commandline
-stripe listen --forward-to localhost:4242/webhook
-
+     stripe listen --forward-to localhost:4242/webhook
 '''
 
 ## Настройки локального прослушивателя вебхуков Stripe
 
 '''commandline
      stripe listen --forward-to localhost:8000/payment/webhook
-'''
-
-## Установка контейнера Docker
-
-'''commandline
-     docker-compose up --build
 '''
