@@ -8,6 +8,4 @@ migrations
 /db.sqlite3
 /.idea
 /stripe.exe
-/docker-compose.yml
-/Dockerfile
-/dockerignore
+/Docker.docx
