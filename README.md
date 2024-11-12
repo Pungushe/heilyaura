@@ -25,3 +25,8 @@
 '''commandline
      stripe listen --forward-to localhost:8000/payment/webhook
 '''
+
+## Создаем суперпользователя Docker
+'''commandline
+     docker-compose run web py manage.py createsuperuser
+'''
